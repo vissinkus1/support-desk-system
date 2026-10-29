@@ -242,13 +242,13 @@ All endpoints return JSON and use standard HTTP status codes:
 - 100% passing test suite covering business rules, overdue calculations, and validations.
 
 ### What's Incomplete / Real Gaps
+- **Customer Portal & Notifications Scope**: Customer-facing portal and email notifications are out of scope. Tickets are created by agents on behalf of customers.
 - **Authentication & RBAC**: There is no JWT, session, or password authentication. Any client can pass any `actor` name or ID.
 - **Pagination**: The ticket list endpoint returns all matching rows without `LIMIT` / `OFFSET` pagination. While fast for hundreds of tickets in SQLite, thousands of tickets will require pagination.
 - **File Attachments**: Ticket entries currently only support plain text; no binary attachments or S3/disk file upload pipelines exist.
 - **Outbound Notifications**: No email integration (SMTP/Sendgrid) or webhook triggers to alert customers or agents when replies are posted.
 - **Real-Time WebSockets**: Updates rely on standard HTTP request/response and refetching on user actions rather than server-sent events (SSE) or WebSockets.
 - **Search Mechanism**: Ticket search uses SQL `LIKE %term%` on subject and customer. For enterprise datasets, SQLite FTS5 full-text indexing should replace `LIKE`.
-
 ---
 
 ## 10. How AI Tools Were Used
