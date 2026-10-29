@@ -1,0 +1,129 @@
+/* ------------------------------------------------------------------ */
+/*  Dashboard                                                         */
+/* ------------------------------------------------------------------ */
+
+.dashboard-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.5rem 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Decorative diagonal burgundy slash */
+.dashboard-hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 55%;
+  height: 200%;
+  background: var(--burgundy);
+  transform: rotate(-12deg);
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dashboard-hero__title {
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-hero__subtitle {
+  font-family: var(--font-body);
+  text-transform: none;
+  font-size: 0.95rem;
+  color: #777;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+/* Stat cards grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  position: relative;
+  z-index: 1;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-top: 4px solid transparent;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-card__value {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  color: var(--burgundy);
+  line-height: 1;
+}
+
+.stat-card__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+}
+
+/* Accent card variants */
+.stat-card--urgent,
+.stat-card--overdue {
+  border: 1.5px solid rgba(89, 9, 7, 0.35);
+  border-top: 4px solid var(--burgundy);
+  background: #fffafa;
+  box-shadow: 0 2px 8px rgba(89, 9, 7, 0.08);
+}
+
+.stat-card--urgent .stat-card__value,
+.stat-card--overdue .stat-card__value {
+  color: var(--burgundy);
+}
+
+.stat-card--urgent .stat-card__label,
+.stat-card--overdue .stat-card__label {
+  color: var(--burgundy);
+  font-weight: 700;
+}
+
+.stat-card--resolved .stat-card__value {
+  color: var(--status-resolved);
+}
+
+.stat-card--in-progress .stat-card__value {
+  color: var(--status-in-progress);
+}
+
+.stat-card--waiting .stat-card__value {
+  color: var(--status-waiting);
+}
+
+/* Skeleton cards */
+.stat-card--skeleton .stat-card__value {
+  width: 60px;
+  height: 44px;
+}
+
+.stat-card--skeleton .stat-card__label {
+  width: 80px;
+  height: 14px;
+}

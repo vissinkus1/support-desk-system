@@ -1,0 +1,32 @@
+:root {
+  /* Core palette */
+  --sage: #A5A79B;
+  --cream: #E8D2B5;
+  --burgundy: #590907;
+  --paper: #F4EBDD;
+  --ink: #1d1b19;
+
+  /* Status colours */
+  --status-open: #8C2F2B;
+  --status-in-progress: #B7791F;
+  --status-waiting: #5B6B7A;
+  --status-resolved: #4E6B4A;
+
+  /* Priority colours */
+  --priority-low: #7C7F73;
+  --priority-medium: #B7791F;
+  --priority-high: #C2542D;
+  --priority-urgent: #590907;
+
+  /* Functional */
+  --radius: 6px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: 0.15s ease;
+
+  /* Fonts */
+  --font-heading: 'Anton', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+

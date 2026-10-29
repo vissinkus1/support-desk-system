@@ -1,0 +1,188 @@
+/* ------------------------------------------------------------------ */
+/*  Tickets list page                                                 */
+/* ------------------------------------------------------------------ */
+
+.tickets-page__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tickets-page__header h1 {
+  font-size: 2rem;
+}
+
+/* Toolbar */
+.tickets-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+}
+
+.tickets-toolbar__search {
+  flex: 1 1 220px;
+  min-width: 180px;
+}
+
+.tickets-toolbar select {
+  flex: 0 0 auto;
+  min-width: 130px;
+}
+
+/* Table */
+.tickets-table-wrap {
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.tickets-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  table-layout: fixed;
+}
+
+.tickets-table th {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  text-align: left;
+  padding: 0.85rem 1rem;
+  border-bottom: 2px solid #ddd5c9;
+  background: var(--paper);
+}
+
+.tickets-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5ded4;
+  vertical-align: middle;
+  color: var(--ink);
+}
+
+/* Extra right padding for the last column */
+.tickets-table th:last-child,
+.tickets-table td:last-child {
+  padding-right: 1.5rem;
+}
+
+.tickets-table tbody tr {
+  transition: background var(--transition);
+}
+.tickets-table tbody tr.ticket-row-clickable {
+  cursor: pointer;
+  border-left: 3px solid transparent;
+}
+.tickets-table tbody tr.ticket-row-clickable:hover {
+  background: rgba(232, 210, 181, 0.4);
+}
+.tickets-table tbody tr.ticket-row-clickable.ticket-row--overdue {
+  border-left: 3px solid var(--burgundy);
+  background-color: rgba(140, 47, 43, 0.08);
+}
+.tickets-table tbody tr.ticket-row-clickable.ticket-row--overdue:hover {
+  background-color: rgba(140, 47, 43, 0.15);
+}
+.tickets-table tbody tr.ticket-row-clickable:hover .ticket-subject-link {
+  color: var(--burgundy);
+  text-decoration: underline;
+}
+.tickets-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Column widths and nowrap enforcement */
+.tickets-table .col-subject {
+  width: 30%;
+}
+
+.tickets-table .col-customer {
+  width: 20%;
+}
+
+.tickets-table .col-status {
+  width: 17%;
+  white-space: nowrap;
+}
+
+.tickets-table .col-priority {
+  width: 10%;
+  white-space: nowrap;
+}
+
+.tickets-table .col-assignee {
+  width: 12%;
+  white-space: nowrap;
+}
+
+.tickets-table .col-updated {
+  width: 11%;
+  color: #888;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* Subject truncation container */
+.subject-cell-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 320px;
+}
+
+.ticket-subject-link {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  min-width: 0;
+  flex: 1;
+}
+
+/* Customer truncation container */
+.ticket-customer-text {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+
+/* Skeleton rows */
+.tickets-table .skeleton-row td {
+  padding: 1rem;
+}
+.skeleton-bar {
+  height: 14px;
+}
+
+/* Loading spinner for refetches */
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid var(--cream);
+  border-top-color: var(--burgundy);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
